@@ -1,5 +1,11 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello!");
+        Director director = Director.getInstance();
+
+        Car sedan = director.createSedan();
+        Car suv = director.createSUV();
+
+        System.out.println(sedan);
+        System.out.println(suv);
     }
 }
