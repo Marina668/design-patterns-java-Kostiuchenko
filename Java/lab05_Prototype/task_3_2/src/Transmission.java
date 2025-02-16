@@ -1,4 +1,6 @@
-public class Transmission {
+public class Transmission implements ClonableTransmission{
+
+
 
     public static class TransmissionBuilder {
         private int gearsNumber = 5;
@@ -35,6 +37,11 @@ public class Transmission {
     public Transmission(Transmission otherTransmission) {
         this.gearsNumber = otherTransmission.gearsNumber;
         this.type = otherTransmission.type;
+    }
+
+    @Override
+    public Transmission copy() {
+        return new Transmission(this);
     }
 
     @Override
