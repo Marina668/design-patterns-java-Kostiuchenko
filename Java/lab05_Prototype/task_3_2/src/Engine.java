@@ -1,4 +1,41 @@
-public class Engine {
+public class Engine implements ClonableEngine{
+
+    public static class EngineBuilder {
+        int power = 105;
+        int torque = 140;
+        Fuel fuel = Fuel.Petrol;
+        float volume = 1.4f;
+
+        public EngineBuilder setPower(int power) {
+            this.power = power;
+            return this;
+        }
+
+        public EngineBuilder setTorque(int torque) {
+            this.torque = torque;
+            return this;
+        }
+
+        public EngineBuilder setFuel(Fuel fuel) {
+            this.fuel = fuel;
+            return this;
+        }
+
+        public EngineBuilder setVolume(float volume) {
+            this.volume = volume;
+            return this;
+        }
+
+        public Engine build() {
+            return new Engine(
+                    power,
+                    torque,
+                    fuel,
+                    volume
+            );
+        }
+    }
+
     public enum Fuel {  // Тип пального
         Petrol,    // Бензин
         Diesel,    // Дізель
@@ -15,6 +52,18 @@ public class Engine {
         this.torque = torque;
         this.fuel = fuel;
         this.volume = volume;
+    }
+
+    public Engine(Engine otherEngine) {
+        this.power = otherEngine.power;
+        this.torque = otherEngine.torque;
+        this.fuel = otherEngine.fuel;
+        this.volume = otherEngine.volume;
+    }
+
+    @Override
+    public Engine copy() {
+        return new Engine(this);
     }
 
     @Override

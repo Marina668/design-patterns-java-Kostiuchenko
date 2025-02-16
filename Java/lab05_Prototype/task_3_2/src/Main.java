@@ -1,9 +1,20 @@
 public class Main {
     public static void main(String[] args) {
-        Engine engine = new Engine(105, 140, Engine.Fuel.Petrol, 1.4f);
-        Wheel wheel = new Wheel(Wheel.Material.Steel, 14);
-        Car car = new Car(Car.Type.Sedan, Car.CarColor.White, engine, wheel);
+        Director director = new Director();
 
-        System.out.println(car);
+        Car sedan = director.createSedan();
+        System.out.println(sedan);
+        System.out.println("------------------------------------------");
+
+        Car suv = director.createSUV();
+        System.out.println(suv);
+        System.out.println("------------------------------------------");
+
+        Car sedan2 = sedan.copy();
+        System.out.println(sedan2);
+        System.out.println("------------------------------------------");
+
+        Car suv2 = suv.copy();
+        System.out.println(suv2);
     }
 }
