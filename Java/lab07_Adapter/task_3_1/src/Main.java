@@ -41,10 +41,10 @@ public class Main {
 
 
 //        TODO: implement and use adapter Type-C => USB
-//        System.out.println("Maintaining legacy charging");
-//        phone.pluginCharger(new AdapterTypeCToMicroUsb(fastCharge));
-//        phone.charge(20);
-//        System.out.printf("Current power status = %s%n", phone.getChargingPercent());
+        System.out.println("Maintaining legacy charging");
+        phone.pluginCharger(new AdapterTypeCToMicroUsb(fastCharge));
+        phone.charge(20);
+        System.out.printf("Current power status = %s%n", phone.getChargingPercent());
 
     }
 
