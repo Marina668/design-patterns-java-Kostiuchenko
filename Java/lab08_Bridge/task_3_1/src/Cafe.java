@@ -1,21 +1,13 @@
 public class Cafe {
 
     public static void main(String[] args) {
-        BlackChocolate blackChocolate = new BlackChocolate(3, 200);
-        BlackCoffee blackCoffee = new BlackCoffee(3, 200, true);
-        BlackTee blackTee = new BlackTee(0, 300);
-
-        beverageInfo(blackChocolate);
-        beverageInfo(blackCoffee);
-        beverageInfo(blackTee);
-
-        MilkChocolate milkChocolate = new MilkChocolate(3, 200);
-        CoffeeWithMilk coffeeWithMilk = new CoffeeWithMilk(3, 200);
-        TeeWithMilk teeWithMilk = new TeeWithMilk(2, 300);
+        Chocolate milkChocolate = new Chocolate(3, new Milk(200), new AtRestaurant());
+        Coffee coffeeWithMilk = new Coffee(3, new Milk(200), new ForTakeout());
+        Tea blackTea = new Tea(0, new Water(300), new AtRestaurant());
 
         beverageInfo(milkChocolate);
         beverageInfo(coffeeWithMilk);
-        beverageInfo(teeWithMilk);
+        beverageInfo(blackTea);
     }
 
     private static void beverageInfo(Beverage beverage) {
