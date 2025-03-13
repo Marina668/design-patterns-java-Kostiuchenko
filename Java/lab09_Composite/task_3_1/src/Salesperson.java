@@ -1,4 +1,4 @@
-public class Salesperson {
+public class Salesperson implements Accounting{
 
   private final String name;
   private final int salary;

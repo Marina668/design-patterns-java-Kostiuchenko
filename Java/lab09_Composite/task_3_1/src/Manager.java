@@ -1,4 +1,4 @@
-public class Manager {
+public class Manager implements Accounting {
 
     private final String name;
     private final int salary;
@@ -8,8 +8,9 @@ public class Manager {
         this.salary = salary;
     }
 
+    @Override
     public void payExpenses() {
-        System.out.println(name + " has been paid $" + salary);
+        System.out.println("Manager "+name + " has been paid $" + salary);
     }
 
 }

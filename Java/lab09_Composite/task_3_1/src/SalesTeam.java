@@ -1,27 +1,28 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class SalesTeam {
+public class SalesTeam implements Accounting {
+    private final String departmentName;
 
-    private final List<Manager> managers = new ArrayList<>();
-    private final List<Salesperson> salespeople = new ArrayList<>();
+    private final List<Accounting> employees = new ArrayList<>();
 
-    void addManager(Manager manager) {
-        managers.add(manager);
+
+    public SalesTeam(String departmentName) {
+        this.departmentName = departmentName;
     }
 
-    void addSalesperson(Salesperson salesperson) {
-        salespeople.add(salesperson);
+    void addEmployee(Accounting employee) {
+        employees.add(employee);
     }
 
+
+    @Override
     public void payExpenses() {
-        for (Manager manager : managers) {
-            manager.payExpenses();
+        System.out.println("\nDepartment: "+departmentName);
+        for (Accounting employee : employees) {
+            employee.payExpenses();
         }
 
-        for (Salesperson salesperson : salespeople) {
-            salesperson.payExpenses();
-        }
     }
 
 }
