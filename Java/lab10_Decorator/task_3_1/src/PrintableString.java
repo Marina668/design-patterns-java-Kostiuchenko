@@ -1,4 +1,4 @@
-public class PrintableString {
+public class PrintableString implements Printable{
     private final String base;
 
     public PrintableString(String base) {
