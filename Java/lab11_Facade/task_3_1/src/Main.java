@@ -3,7 +3,6 @@ public class Main {
     public static void main(String[] args) {
 
         String fileName = "youtubevideo.ogg";
-        String format = "mp4";
 
         VideoFile videoFile = new VideoFile(fileName,
             new Buffer("Byte buffer of video"),
@@ -14,16 +13,11 @@ public class Main {
         // оскільки у клієнта доступний лише кодек "mp4" потрібно провести
         // конвертацію "youtubevideo.ogg" з формату "ogg" у формат "mp4"
 
-        System.out.println("\n======= VideoConversionFacade: conversion started. =======");
-        Codec sourceCodec = CodecFactory.extract(videoFile);
 
-        Codec destinationCodec = new MPEG4CompressionCodec();
-        Buffer buffer = BitrateReader.read(videoFile, sourceCodec);
-        VideoFile videoFileConverted = BitrateReader.convert(buffer, videoFile.getName(), destinationCodec);
-        AudioMixer audioMixer = new AudioMixer();
-        audioMixer.fix(videoFileConverted, videoFile.getAudioBuffer());
+        Facade videoConverterFacade = new Facade();
+        Codec destCodec = new MPEG4CompressionCodec();
+        VideoFile videoFileConverted = videoConverterFacade.convert(videoFile, destCodec);
 
-        System.out.println("====== VideoConversionFacade: conversion completed =======\n");
-        videoFileConverted.play(new MPEG4CompressionCodec());
+        videoFileConverted.play(destCodec);
     }
 }
