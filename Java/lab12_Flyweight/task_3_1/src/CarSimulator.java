@@ -11,11 +11,7 @@ public class CarSimulator {
 
   public static void main(String[] args) {
 
-    Runnable createVehicles = new Runnable() {
-      public void run() {
-        createRandomCar();
-      }
-    };
+    Runnable createVehicles = CarSimulator::createRandomCar;
 
     ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
     executor.scheduleAtFixedRate(createVehicles, 0, 1, TimeUnit.SECONDS);
@@ -32,8 +28,8 @@ public class CarSimulator {
     Car car = carBuilder
             .reset()
             .setCarColor(color)
-            .setEngine(new Engine(power, fuel))
-            .setWheel(new Wheel(wheel_diameter))
+            .setEngine(power, fuel)
+            .setWheel(wheel_diameter)
             .build();
     System.out.println("Creating " + car);
     car.showInfo();
