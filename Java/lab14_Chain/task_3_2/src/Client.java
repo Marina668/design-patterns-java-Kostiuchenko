@@ -1,5 +1,3 @@
-
-
 public class Client {
     public static void main(String[] args) {
 
@@ -14,9 +12,11 @@ public class Client {
                 "document.pdf",
         };
 
-        // Create Chain of responsibility to open file by correct program according to the extension.
+
+        HandlerManager handlersManager = new HandlerManager();
+        Handler handler = handlersManager.getHandler();
         for (String file : files) {
-            // open file
+            handler.open(file);
         }
 
 
