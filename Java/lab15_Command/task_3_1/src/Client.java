@@ -1,16 +1,20 @@
 public class Client {
     public static void main(String[] args) {
 
-        Lamp kitchenLamp = new Lamp("Kitchen");
-        Lamp hallLamp = new Lamp("Hall");
-        Lamp bedroomLamp = new Lamp("Bedroom");
-        Lamp bathroomLamp = new Lamp("Bathroom");
+        Lamp[] lamps = {
+                new Lamp("Kitchen"),
+                new Lamp("Hall"),
+                new Lamp("Bedroom"),
+                new Lamp("Bathroom")
+        };
 
-        Controller controllerKitchenLamp = new Controller();
-        Controller controllerHallLamp = new Controller();
-        Controller controllerBedroomLamp = new Controller();
-        Controller controllerBathroomLamp = new Controller();
-        Controller controllerUniversal = new Controller();
+        ControllerFactory factory = new ControllerFactory();
+
+        Controller controllerKitchenLamp = factory.getSimpleController(lamps[0]);
+        Controller controllerHallLamp = factory.getSimpleController(lamps[1]);
+        Controller controllerBedroomLamp = factory.getSimpleController(lamps[2]);
+        Controller controllerBathroomLamp = factory.getSimpleController(lamps[3]);
+        Controller controllerUniversal = factory.getUniversalController(lamps);
 
         // Simulation
         controllerKitchenLamp.on();
