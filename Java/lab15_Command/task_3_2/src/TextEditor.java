@@ -2,30 +2,40 @@ public class TextEditor {
 
     private Document document;
 
-    final private Button saveButton;
-    final private Button printButton;
+    private Button saveButton;
+    private Button printButton;
 
-    final private MenuItem saveMenuItem;
-    final private MenuItem printMenuItem;
-    final private MenuItem showInfoMenuItem;
+    private MenuItem saveMenuItem;
+    private MenuItem printMenuItem;
+    private MenuItem showInfoMenuItem;
 
-    final private Shortcut saveShortcut;
-    final private Shortcut printShortcut;
+    private Shortcut saveShortcut;
+    private Shortcut printShortcut;
 
     public TextEditor() {
-        saveButton = new Button();
-        printButton = new Button();
+        setEditorConfiguration();
+    }
 
-        saveMenuItem = new MenuItem();
-        printMenuItem = new MenuItem();
-        showInfoMenuItem = new MenuItem();
+    private void setEditorConfiguration(){
 
-        saveShortcut = new Shortcut();
-        printShortcut = new Shortcut();
+        Command saveCommand = new SaveCommand(document);
+        Command printCommand = new PrintCommand(document);
+        Command showInfoCommand = new ShowInfoCommand(document);
+
+        saveButton = new Button(saveCommand);
+        printButton = new Button(printCommand);
+
+        saveMenuItem = new MenuItem(saveCommand);
+        printMenuItem = new MenuItem(printCommand);
+        showInfoMenuItem = new MenuItem(showInfoCommand);
+
+        saveShortcut = new Shortcut(saveCommand);
+        printShortcut = new Shortcut(printCommand);
     }
 
     public void newDocument(String name) {
         document = new Document(name);
+        setEditorConfiguration();
     }
 
     public void clickSaveButton() {
