@@ -1,13 +1,13 @@
-public class Television implements Device {
+public class Radio implements Device {
 
     private int volume;
-    private int chanel;
+    private int radioFrequency;
     private boolean isOn;
 
-    public Television() {
+    public Radio() {
         this.isOn = false;
         this.volume = 50;
-        this.chanel = 1;
+        this.radioFrequency = 0;
     }
 
     @Override
@@ -15,7 +15,7 @@ public class Television implements Device {
         if (isOn) {
             return;
         }
-        System.out.println("Television is on");
+        System.out.println("Radio is on");
         isOn = true;
     }
 
@@ -24,7 +24,7 @@ public class Television implements Device {
         if (!isOn) {
             return;
         }
-        System.out.println("Television is off");
+        System.out.println("Radio is off");
         isOn = false;
     }
 
@@ -32,8 +32,9 @@ public class Television implements Device {
     public void volumeUp() {
         if (isOn) {
             volume++;
-            System.out.println("Tv volume = " + volume);
+            System.out.println("Radio volume = " + volume);
         }
+
 
     }
 
@@ -41,7 +42,7 @@ public class Television implements Device {
     public void volumeDown() {
         if (isOn) {
             volume--;
-            System.out.println("Tv volume = " + volume);
+            System.out.println("Radio volume = " + volume);
         }
 
     }
@@ -49,8 +50,8 @@ public class Television implements Device {
     @Override
     public void nextChanel() {
         if (isOn) {
-            chanel++;
-            System.out.println("Tv chanel = " + chanel);
+            radioFrequency++;
+            System.out.println("Radio frequency = " + radioFrequency);
         }
 
     }
@@ -58,8 +59,8 @@ public class Television implements Device {
     @Override
     public void prevChanel() {
         if (isOn) {
-            chanel--;
-            System.out.println("Tv chanel = " + chanel);
+            radioFrequency--;
+            System.out.println("Radio frequency = " + radioFrequency);
         }
 
     }
