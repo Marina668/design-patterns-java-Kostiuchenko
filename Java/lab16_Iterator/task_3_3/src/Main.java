@@ -19,7 +19,17 @@ public class Main {
             }
         }
 
-        root.execute();
+        System.out.println("DFS:");
+        Item minDFS = Analyzer.findMin(new DFSIterator(root));
+        Item maxDFS = Analyzer.findMax(new DFSIterator(root));
+        System.out.println("Min: " + minDFS);
+        System.out.println("Max: " + maxDFS);
+
+        System.out.println("\nBFS:");
+        Item minBFS = Analyzer.findMin(new BFSIterator(root));
+        Item maxBFS = Analyzer.findMax(new BFSIterator(root));
+        System.out.println("Min: " + minBFS);
+        System.out.println("Max: " + maxBFS);
 
     }
 }
