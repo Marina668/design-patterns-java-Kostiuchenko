@@ -11,10 +11,17 @@ public class Main {
     shop.putItem(pencils);
     shop.putItem(paper);
 
-      // TODO: Implement pattern to run commented code
-//    for (ShopItem item : Shop){
-//      System.out.println(item);
-//    }
+    System.out.println("=====Iteration in alphabetic order=====");
+    shop.setIteratorFactory(AlphabeticIterator::new);
+    for (ShopItem item : shop){
+      System.out.println(item);
+    }
+
+    System.out.println("\n=====Iteration by quantity in descending order=====");
+    shop.setIteratorFactory(QuantityIterator::new);
+    for (ShopItem item : shop){
+      System.out.println(item);
+    }
 
   }
 
