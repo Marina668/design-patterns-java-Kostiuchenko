@@ -11,10 +11,15 @@ public class Client {
                 Account.createGuest(),
         };
 
-        HandlersManager handlersManager = new HandlersManager();
-        Handler handler = handlersManager.getHandler();
+        Handler guestHandler = new GuestAuthHandler();
+        Handler adminHandler = new AdminAuthHandler();
+        Handler userHandler = new UserAuthHandler();
+
+        guestHandler.setNext(adminHandler);
+        adminHandler.setNext(userHandler);
+
         for (Account user : users) {
-            handler.handle(user);
+            guestHandler.handle(user);
         }
     }
 }
