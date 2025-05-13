@@ -1,5 +1,25 @@
 public class Triangle {
 
+    public static  class Memento{
+        final private float a;
+        final private float b;
+        final private float c;
+
+        public Memento(float a, float b, float c) {
+            this.a = a;
+            this.b = b;
+            this.c = c;
+        }
+    }
+    public Memento save(){
+        return new Memento(a,b,c);
+    }
+    public void restore(Memento memento){
+        a = memento.a;
+        b = memento.b;
+        c = memento.c;
+    }
+
     private float a;
     private float b;
     private float c;
