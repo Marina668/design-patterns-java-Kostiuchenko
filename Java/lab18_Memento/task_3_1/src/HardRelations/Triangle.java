@@ -1,17 +1,16 @@
-public class Triangle {
+package HardRelations;
+
+public class Triangle implements Originator {
 
     private float a;
     private float b;
     private float c;
 
-    /**
-     * Перевіряє чи існує трикутник з заданими сторонами
-     *
-     * @param a сторона трикутники
-     * @param b сторона трикутники
-     * @param c сторона трикутники
-     * @return true, якщо такий трикутник існує, та false в іншому разі
-     */
+    @Override
+    public Memento save() {
+        return new TriangleMemento(this, a, b, c);
+    }
+
     public static boolean checkExistence(float a, float b, float c) {
         return a + b > c && a + c > b && b + c > a;
     }
@@ -76,6 +75,4 @@ public class Triangle {
         float s = p * (p - a) * (p - b) * (p - c);
         return (float) Math.sqrt(s);
     }
-
-
 }
