@@ -19,6 +19,5 @@ public class Main {
         mediaPlayer.stop();
         mediaPlayer.play();
         mediaPlayer.stop();
-
     }
 }
