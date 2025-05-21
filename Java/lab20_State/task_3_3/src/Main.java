@@ -6,6 +6,7 @@ public class Main {
     fan.turnUp();
     fan.turnDown();
     fan.turnDown();
+    fan.turnDown();
     fan.turnUp();
   }
 
