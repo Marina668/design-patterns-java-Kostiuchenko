@@ -1,12 +1,15 @@
 public class Customer {
 
-  public void makeBankAccountPayment(int amount) {
-    System.out.println("Payment of $" + amount + " made from bank account.");
+  Strategy payment;
+
+  void setPayment(Strategy payment) {
+    this.payment = payment;
   }
 
-  public void makePayPalPayment(int amount) {
-    System.out.println("Payment of $" + amount + " made from PayPal.");
+  public void makePayment(int amount) {
+    if (payment == null) {
+      throw new IllegalArgumentException("Payment type is not set");
+    }
+    payment.makePayment(amount);
   }
-
-
 }
