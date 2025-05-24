@@ -10,6 +10,8 @@ public class Client {
 
         for (MilitaryObject military : militaryObjects) {
             System.out.println(military);
+            military.accept(new SecretAgent());
+            military.accept(new Saboteur());
         }
     }
 

@@ -1,4 +1,4 @@
-public class GeneralStaff extends MilitaryObject {
+public class GeneralStaff implements MilitaryObject {
 
     /**
      * Кількість генералів на військовій базі
@@ -37,5 +37,10 @@ public class GeneralStaff extends MilitaryObject {
                 "generals=" + generals +
                 ", secretPaper=" + secretPaper +
                 '}';
+    }
+
+    @Override
+    public void accept(Spy spy) {
+        spy.visit(this);
     }
 }

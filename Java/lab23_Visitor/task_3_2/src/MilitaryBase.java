@@ -1,4 +1,4 @@
-public class MilitaryBase extends MilitaryObject {
+public class MilitaryBase implements MilitaryObject {
 
     /**
      * Кількість офіцерів на військовій базі
@@ -69,5 +69,10 @@ public class MilitaryBase extends MilitaryObject {
                 ", jeeps=" + jeeps +
                 ", tanks=" + tanks +
                 '}';
+    }
+
+    @Override
+    public void accept(Spy spy) {
+        spy.visit(this);
     }
 }
