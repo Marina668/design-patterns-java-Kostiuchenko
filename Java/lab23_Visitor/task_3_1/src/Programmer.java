@@ -1,8 +1,8 @@
-public class SalesPerson implements Employee {
+public class Programmer implements Employee {
 
     private int salary;
 
-    public SalesPerson(int salary) {
+    public Programmer(int salary) {
         this.salary = salary;
     }
 
@@ -19,5 +19,4 @@ public class SalesPerson implements Employee {
     public void accept(SalaryVisitor visitor) {
         visitor.visit(this);
     }
-
 }

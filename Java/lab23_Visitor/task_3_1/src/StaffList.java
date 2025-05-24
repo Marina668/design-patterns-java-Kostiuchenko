@@ -20,4 +20,11 @@ public class StaffList implements Employee {
         return sum;
     }
 
+    @Override
+    public void accept(SalaryVisitor visitor) {
+        for (Employee salary: salaries) {
+            salary.accept(visitor);
+        }
+    }
+
 }
